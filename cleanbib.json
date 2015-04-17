@@ -1,1 +1,1 @@
-{"excludewords": ["a", "and", "as", "if", "as", "of", "for", "with", "where", "when", "how", "why", "over", "that", "at", "the", "by", "in"], "excludefield": ["url", "file", "abstract", "copyright", "note", "month", "keyword", "urldate", "language", "issn", "link"]}
+{"excludewords": ["a", "and", "as", "if", "as", "of", "for", "with", "where", "when", "how", "why", "over", "that", "at", "the", "by", "in","to"], "excludefield": ["url", "file", "abstract", "copyright", "note", "month", "keyword", "urldate", "language", "issn", "link"]}

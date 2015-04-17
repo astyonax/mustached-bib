@@ -23,7 +23,7 @@ def loadconfig(fin):
   data=json.loads(fin.read())
   return data
 
-cfgfd='cleanbib.json'
+cfgfd=script_path+'/cleanbib.json'
 with open(cfgfd,'r') as fin:
   config=loadconfig(fin)
 
@@ -38,9 +38,10 @@ def norm_title(txt):
   #txt[0]=txt[0].capitalize()
   for i,j in enumerate(txt):
     if j.lower() not in exclude and ( i==0 or j.upper()!=j) and (j[0]!='{' and j[-1]!='}'):
-      txt[i]=j.capitalize()
+      txt[i]=j.title()
     else:
-      txt[i]=j.lower()
+      if j.lower()  in exclude:
+	txt[i]=j.lower()
       
   txt=' '.join(txt)
   return txt
@@ -73,8 +74,10 @@ def cleanbib(fin,fout):
   duplicated=[]
   changed_ids=[]
   for i in n:
-    #try:
-      #authors=i['author'].split("and")
+    try:
+      authors=i['author'].split("and")
+      authors=[j.title().strip() for j in authors]
+      i['author']=' and '.join(authors)
       #authors=[[word.strip() for word in j.split(',')] for j in authors]
       #for j,v in enumerate(authors):
 	#surname,name =v
@@ -85,8 +88,8 @@ def cleanbib(fin,fout):
 	#names=[n[0].upper() for n in names]
 	
       #print authors
-    #except:
-      #pass
+    except:
+      pass
     oldid=i['id']
     i['id']=i['id'].replace('_????','')
     low=map(chr, range(97, 123))
@@ -140,7 +143,7 @@ def cleanbib(fin,fout):
     except KeyError:
       print journal ,"not in abbrv list"
       #pass
-      
+    
   # ========================
   #  saving
   # ========================
