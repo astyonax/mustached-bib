@@ -17,7 +17,7 @@ For every entry:
 
   'url','file','abstract','copyright','note','month' 
  
-  this list can be configured in the JSON file cleanbib.json:excludefield
+  this list can be configured in the __JSON__ file cleanbib.json:excludefield
 * it clears the key names from the tedious _???? markers
 * it tries to makes all titles with a uniform style
 
