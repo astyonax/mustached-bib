@@ -1,5 +1,8 @@
 # mustached-bib
 
+Note that this program may be not useful when zotero is used in combination with the "better bibtex" plugin.
+
+---
 A CLI program to clean Zotero's bibtex files.
 This program takes an input bibtex file (ideally produced by zotero)
 and outputs a stripped/corrected version.
